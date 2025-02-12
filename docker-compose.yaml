@@ -5,11 +5,9 @@ version: '3.8'
 networks:
   todo-network:
     driver: bridge
-    external: true
 
 volumes:
   mysql-data:
-    external: true
 
 services:
   todo-application:
@@ -23,14 +21,14 @@ services:
       - mysql-db
     environment:
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Nuvelabs123$
+      SPRING_DATASOURCE_PASSWORD: Root@123
     restart: always
       
   mysql-db:
      image: mysql:8
      container_name: todo-application-pipeline-mysql-db-1
      environment:
-       MYSQL_ROOT_PASSWORD: Nuvelabs123$
+       MYSQL_ROOT_PASSWORD: Root@123
        MYSQL_DATABASE: tododb
      ports:
        - "3307:3306"
