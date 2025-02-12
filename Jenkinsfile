@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('Clone Repository'){
             steps{
-                git branch: 'main', url: 'https://github.com/Alston-Dias/todo-application.git'
+                git branch: 'main', url: 'https://github.com/PawanKalligudda/todo-application.git'
             }
         }
 
@@ -25,8 +25,8 @@ pipeline{
         stage('Push Docker Images to Docker Hub'){
             steps{
                 sh 'docker login -u $DOCKER_HUB_CREDENTIALS_USR -p $DOCKER_HUB_CREDENTIALS_PSW'
-                sh 'docker tag todo-application-image:latest alstar1402/todo-application:latest'
-                sh 'docker push alstar1402/todo-application:latest'
+                sh 'docker tag todo-application-image:latest pawankalligudda/todo-application:latest'
+                sh 'docker push pawankalligudda/todo-application:latest'
             }
         }
 
